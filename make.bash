@@ -1,7 +1,7 @@
 #!/bin/bash
 
 USAGE() {
-  echo "Usage: ./make.bash (terminal, sapp, sgl-sapp, sapp-em, sgl-sapp-em) (debug(default), release)"
+  echo "Usage: ./make.bash (terminal, sapp, sapp-em) (debug(default), release)"
   exit -1
 }
 
@@ -47,16 +47,10 @@ elif [ $1 == "sapp-em" ]; then
   RUN "emranlib libsokol.a"
   RUN "emcc -I./sokol -Os -DNDEBUG -std=gnu11 -o main-sapp.c.o -c main-sapp.c"
   RUN "emcc -Os -DNDEBUG --shell-file sokol/shell.html -sNO_FILESYSTEM=1 -sASSERTIONS=0 -sMALLOC=emmalloc --closure=1 main-sapp.c.o -o jcw.html libsokol.a"
-
-elif [ $1 == "sgl-sapp" ]; then
-  RUN "${COMPILER} ${C_FLAGS} -DUSE_SGL -I./sokol sokol/sokol.c main-sgl-sapp.c -lX11 -lXi -lXcursor -lGL -ldl -lm -lpthread"
-
-elif [ $1 == "sgl-sapp-em" ]; then
-  RUN "emcc -Os -DNDEBUG -DUSE_SGL -std=gnu11 -o sokol.c.o -c sokol/sokol.c"
-  RUN "emar qc libsokol.a sokol.c.o"
-  RUN "emranlib libsokol.a"
-  RUN "emcc -I./sokol -Os -DNDEBUG -std=gnu11 -o main-sgl-sapp.c.o -c main-sgl-sapp.c"
-  RUN "emcc -Os -DNDEBUG --shell-file sokol/shell.html -sNO_FILESYSTEM=1 -sASSERTIONS=0 -sMALLOC=emmalloc --closure=1 main-sgl-sapp.c.o -o jcw.html libsokol.a"
+  RUN "mv jcw.html docs/index.html"
+  RUN "mv jcw.js docs/"
+  RUN "mv jcw.wasm docs/"
+  # emrun docs/index.html
 
 else
   USAGE
