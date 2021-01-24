@@ -2,33 +2,26 @@
 
 Conway's Game of Life in C with [Sokol](https://github.com/floooh/sokol)
 
+### main-sapp.c (Wasm)
+[WASM version](https://doccaico.github.io/jcw/)
+
+### main-sapp.c (Desktop)
+<img src="https://github.com/doccaico/jcw/blob/main/img/sapp.png?raw=true" width="200px">
+
+### main-terminal.c (Terminal)
+<img src="https://github.com/doccaico/jcw/blob/main/img/terminal.png?raw=true" width="200px">
+
 ## Build
 
 ```sh
-# terminal
-$ ./make.bash terminal
-
-# desktop (sapp)
-$ ./make.bash sapp
-# desktop (sgl-sapp)
-$ ./make.bash sgl-sapp
-
-# emscripten (sapp)
+# Wasm
 $ ./make.bash sapp-em
-# emscripten (sgl-sapp)
-$ ./make.bash sgl-sapp-em
+$ ./emrun docs/index.html
 
-# run
-./jcw
-# run (emscripten)
-./emrun jcw.html
+# Desktop
+$ ./make.bash sapp
+$ ./jcw
+
+# Terminal
+$ ./make.bash terminal
 ```
-
-### main-sapp.c
-[WASM version](https://doccaico.github.io/jcw/)
-
-### main-terminal.c
-<img src="https://github.com/doccaico/jcw/blob/main/img/terminal.png?raw=true" width="200px">
-
-### main-sgl-sapp.c
-<img src="https://github.com/doccaico/jcw/blob/main/img/sgl-sapp.png?raw=true" width="200px">
