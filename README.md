@@ -3,7 +3,7 @@
 Conway's Game of Life in C with [Sokol](https://github.com/floooh/sokol)
 
 ### main-sapp.c (Wasm)
-[WASM version](https://doccaico.github.io/jcw/)
+[WASM version](https://doccaico.github.io/conway-sokol/)
 
 ### main-sapp.c (Desktop)
 <img src="https://github.com/doccaico/jcw/blob/main/img/sapp.png?raw=true" width="200px">
